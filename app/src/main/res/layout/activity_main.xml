@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_layout"
+    tools:context=".ui.MainActivity">
+
+    <com.mapbox.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="59.7128"
+        mapbox:mapbox_cameraTargetLng="42.0060"
+        mapbox:mapbox_cameraZoom="9.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ic_menu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:background="@color/spark_btn_color"
+        android:clickable="true"
+        android:focusable="true"
+        app:contentPadding="10dp"
+        android:foreground="?actionBarItemBackground"
+        android:src="@drawable/ic_shape"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_sv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sv"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/free_btn_bg"
+        android:fontFamily="@font/roboto"
+        android:text="Свободен"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_ant"
+        style="@style/COLOR_BTN_BUSY"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:background="@color/spark_btn_color"
+        android:fontFamily="@font/roboto"
+        android:text="Занят"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:textAllCaps="false"
+        android:textColor="#2C2C2C"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/btn_sv" />
+
+    <ImageView
+        android:id="@+id/ic_notif_1"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_icon_notification"
+        android:elevation="1dp"
+        app:layout_constraintEnd_toEndOf="@id/ic_not"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="6dp"
+        android:layout_height="12dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="clip_vertical"
+        android:text="1"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/ic_notif_1"
+        app:layout_constraintStart_toStartOf="@id/ic_notif_1"
+        app:layout_constraintTop_toTopOf="@id/ic_notif_1" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ic_not"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/spark_btn_color"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        android:clickable="true"
+        android:foreground="?actionBarItemBackground"
+        android:focusable="true"
+        app:contentPadding="10dp"
+        android:src="@drawable/ic_notif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_sv" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/btn_spark"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/spark_btn_color"
+        android:clickable="true"
+        android:foreground="?actionBarItemBackground"
+        android:src="@drawable/ic_spark"
+        app:contentPadding="10dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/ic_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        android:focusable="true" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/btn_zoom_in"
+        style="@style/COLOR_BTN_BUSY"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/main_btn_bg_color"
+        android:foreground="?actionBarItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:contentPadding="10dp"
+        android:src="@drawable/ic_zoom_in"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:layout_constraintEnd_toEndOf="@id/ic_not"
+        app:layout_constraintTop_toTopOf="@id/btn_spark" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/btn_zoom_out"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/main_btn_bg_color"
+        android:foreground="?actionBarItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:contentPadding="10dp"
+        android:src="@drawable/ic_remove"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:layout_constraintEnd_toEndOf="@id/ic_not"
+        app:layout_constraintTop_toBottomOf="@id/btn_zoom_in" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/btn_navigate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/main_btn_bg_color"
+        android:foreground="?actionBarItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/is_navigate"
+        app:contentPadding="10dp"
+        app:layout_constraintEnd_toEndOf="@id/ic_not"
+        app:layout_constraintTop_toBottomOf="@id/btn_zoom_out"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/exchange"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_gradient"
+        android:foreground="?actionBarItemBackground"
+        android:src="@drawable/ic_exchange"
+        app:contentPadding="12dp"
+        app:layout_constraintBottom_toTopOf="@id/bord"
+        app:layout_constraintEnd_toStartOf="@id/rocket"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
+    <ImageView
+        android:id="@+id/ic_notif_zakazy"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="43dp"
+        android:background="@drawable/bg_icon_notification"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/exchange"
+        app:layout_constraintEnd_toEndOf="@id/exchange" />
+
+    <TextView
+        android:layout_width="7dp"
+        android:layout_height="14dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="clip_vertical"
+        android:text="1"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/ic_notif_zakazy"
+        app:layout_constraintStart_toStartOf="@id/ic_notif_zakazy"
+        app:layout_constraintTop_toTopOf="@id/ic_notif_zakazy" />
+
+    <TextView
+        android:id="@+id/zakazy"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="Заказы"
+        android:backgroundTint="@color/titles_bg"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/exchange"
+        app:layout_constraintStart_toStartOf="@id/exchange" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/rocket"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_gradient"
+        android:foreground="?actionBarItemBackground"
+        android:src="@drawable/ic_rocket"
+        app:contentPadding="12dp"
+        app:layout_constraintBottom_toTopOf="@id/bord"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="@id/guideline" />
+
+    <TextView
+        android:id="@+id/bord"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="Бордюр"
+        android:backgroundTint="@color/titles_bg"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/rocket"
+        app:layout_constraintStart_toStartOf="@id/rocket" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/tarify"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_gradient"
+        android:foreground="?actionBarItemBackground"
+        android:src="@drawable/ic_tarif"
+        app:contentPadding="12dp"
+        app:layout_constraintBottom_toTopOf="@id/bord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rocket">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
+    <TextView
+        android:id="@+id/tv_tarif"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="Тарифы"
+        android:backgroundTint="@color/titles_bg"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tarify"
+        app:layout_constraintStart_toStartOf="@id/tarify" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

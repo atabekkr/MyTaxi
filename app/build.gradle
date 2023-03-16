@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.example.mapbox2'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.mapbox2"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation ('com.mapbox.maps:android:10.11.1'){
+        exclude group: 'group_name', module: 'module_name'
+    }
+
+    /*
+     * Room
+     */
+    def room_version = "2.4.3"
+    //noinspection GradleDependency
+    implementation "androidx.room:room-runtime:$room_version"
+    //noinspection GradleDependency
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    /**
+     *  kotlinx.coroutines
+     */
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+    def lifecycle_version = "2.5.1"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    //Koin
+    def koin_version = "3.3.3"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+
+    /**
+     * Glide
+     * */
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+
+    /**
+     * Corbind
+     * */
+    implementation 'ru.ldralighieri.corbind:corbind:1.5.4'
+    implementation 'ru.ldralighieri.corbind:corbind-material:1.5.4'
+    implementation 'ru.ldralighieri.corbind:corbind-swiperefreshlayout:1.5.4'
+
+
+}

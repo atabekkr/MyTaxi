@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="main_btn_bg_color">#BEBEBE</color>
+    <color name="spark_btn_color">#BEBEBE</color>
+    <color name="free_btn_bg">#00A43E</color>
+    <color name="titles_bg">#BEBEBE</color>
+    <color name="bg_layout">#03000000</color>
+</resources>
