@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.mapbox2.data.models.LocationData
 import com.example.mapbox2.data.models.ResultData
 import com.example.mapbox2.domain.usecase.MainUseCase
-import com.example.mapbox2.presentation.MainViewModel
 import kotlinx.coroutines.flow.*
 
 class MainViewModelImpl(private val useCase: MainUseCase):  ViewModel() {
@@ -17,7 +16,6 @@ class MainViewModelImpl(private val useCase: MainUseCase):  ViewModel() {
 
     val getLastLocationFlow: Flow<LocationData> get() = _getLastLocationFlow
      suspend fun addLocation(longitude: Double, latitude: Double) {
-         Log.d("addLoc", "$longitude, $latitude")
         useCase.addLocation(longitude, latitude)
     }
 

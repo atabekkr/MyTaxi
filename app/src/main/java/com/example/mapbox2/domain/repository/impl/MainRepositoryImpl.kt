@@ -18,7 +18,6 @@ class MainRepositoryImpl(private val dao: LocationDao) : MainRepository {
     }
 
     override suspend fun addLocation(longitude: Double, latitude: Double) {
-        Log.e("TTT", "$latitude, $longitude")
         dao.addLocation(LocationData(0, longitude, latitude))
     }
 

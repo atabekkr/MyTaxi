@@ -1,6 +1,7 @@
 package com.example.mapbox2.app
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.mapbox2.di.appModule
 import com.example.mapbox2.di.dataModule
 import com.example.mapbox2.di.domainModule
@@ -16,6 +17,9 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@App)

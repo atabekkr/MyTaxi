@@ -30,10 +30,10 @@ class MyService : Service() {
         locationChangeListener = LocationListener {
             locationListener?.onChangeLocation(it.longitude, it.latitude)
         }
-        
+
         if (locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER)!!) {
             locationManager?.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER, 2, 100f, locationChangeListener!!
+                LocationManager.GPS_PROVIDER, 2, 1f, locationChangeListener!!
             )
         } else {
             Toast.makeText(this, "No Service Provider is available", Toast.LENGTH_SHORT).show()
@@ -42,6 +42,6 @@ class MyService : Service() {
         return START_STICKY
     }
 
-    override fun onBind(intent: Intent?) = null
+    override fun onBind(intent: Intent?): Nothing? = null
 
 }

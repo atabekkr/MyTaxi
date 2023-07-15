@@ -1,29 +1,18 @@
 package com.example.mapbox2.ui
 
 import android.Manifest
-import android.app.Application
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.getInstance
 import androidx.lifecycle.lifecycleScope
 import com.example.mapbox2.service.listener.MyLocationListener
 import com.example.mapbox2.service.MyService
 import com.example.mapbox2.R
-import com.example.mapbox2.app.App
 import com.example.mapbox2.databinding.ActivityMainBinding
-import com.example.mapbox2.presentation.MainViewModel
 import com.example.mapbox2.presentation.impl.MainViewModelImpl
 import com.example.mapbox2.utils.bitmapFromDrawableRes
 import com.example.mapbox2.utils.toast
@@ -46,17 +35,12 @@ class MainActivity : AppCompatActivity(), MyLocationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 
         MyService.locationListener = this
 
         initListeners()
         checkPermission()
         initObservers()
-
-
-
-
     }
 
 
@@ -135,6 +119,7 @@ class MainActivity : AppCompatActivity(), MyLocationListener {
     override fun onChangeLocation(longitude: Double, latitude: Double) {
         lifecycleScope.launchWhenResumed {
             viewModel.addLocation(longitude, latitude)
+            toast("$longitude")
         }
     }
 
