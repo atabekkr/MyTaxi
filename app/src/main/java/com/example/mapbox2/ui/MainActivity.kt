@@ -139,7 +139,4 @@ class MainActivity : AppCompatActivity(), MyLocationListener {
         super.onDestroy()
         stopService(Intent(this, MyService::class.java))
     }
-
-    //change
-
 }
