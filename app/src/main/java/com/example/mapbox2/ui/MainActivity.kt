@@ -134,6 +134,7 @@ class MainActivity : AppCompatActivity(), MyLocationListener {
         }
     }
 
+    //haw menda ozgerrimgo
     override fun onDestroy() {
         super.onDestroy()
         stopService(Intent(this, MyService::class.java))
