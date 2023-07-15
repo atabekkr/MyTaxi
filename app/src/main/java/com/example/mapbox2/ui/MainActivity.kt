@@ -133,4 +133,12 @@ class MainActivity : AppCompatActivity(), MyLocationListener {
             Toast.makeText(this, "NO GPS PERMISSIONS", Toast.LENGTH_SHORT).show()
         }
     }
+
+    //haw menda ozgerrimgo
+    //sfksjfklsjf
+    override fun onDestroy() {
+        super.onDestroy()
+        stopService(Intent(this, MyService::class.java))
+    }
+
 }
