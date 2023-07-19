@@ -38,9 +38,15 @@ class MainActivity : AppCompatActivity(), MyLocationListener {
 
         MyService.locationListener = this
 
+
+        //Joqpole
+
         initListeners()
         checkPermission()
         initObservers()
+
+        //GGG
+
     }
 
 
